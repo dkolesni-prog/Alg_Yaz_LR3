@@ -12,6 +12,10 @@
 //3. В чём смысл выводить "invalid input", если дальше программа работает, как ни в чём ни бывало?
 //4. Не выполнено задание ЛР с 2.3 и далее
 
+//3.4.+ "Удалить из массива первый нулевой элемент. Вывести массив на экран." - это значит "первый элемент, равный 0
+//4.1. +Произвольная строка может содержать пробелы
+//4.3. +Портит другое слово(
+
 int main() {
     std::cout << "Задача 1" << std::endl;
     std::srand(std::time(0));
@@ -90,7 +94,9 @@ int main() {
         sum = sum + i;
     }
     std::cout << std::endl << "The sum of all elements: " << sum << std::endl;
-    v1.erase(v1.begin() + 0);
+    ;
+    v1.erase(v1.begin() + std::distance(v1.begin(), std::find(v1.begin(), v1.end(), 0)));
+
     for (int i: v1) {
         std::cout << i << " ";
     }
@@ -100,7 +106,7 @@ int main() {
 
     int lengthS = 0;
     std::string str1;
-    std::cin >> str1;
+    getline(std::cin,str1 );
     std::cout << str1 << std::endl;
     float value = 0;
     value = std::count(str1.begin(), str1.end(), '8');
@@ -112,8 +118,7 @@ int main() {
     int L1 = 0;
     int L2 = 0;
     std::cin >> L1 >> L2;
-    str1 = str1.substr(L1, L2-L1);
-    std::cout << str1 << std::endl;
+    std::cout << str1.substr(L1, L2-L1) << std::endl;
 
     std::string s("Can you can a can as a canner can can a can?");
     std::string word;
